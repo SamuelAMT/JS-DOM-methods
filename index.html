@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercícios de JavaScript - DOM</title>
+  <style>
+
+    <style>
+      .coluna-esquerda {
+        width: 50%;
+        padding: 10px;
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+      }
+
+      .coluna-direita {
+        width: 50%;
+        padding: 10px;
+        display: flex;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+    </style>
+  </style>
+</head>
+<body>
+
+    <div class="coluna-esquerda">
+    <h1>Exemplo 1: getElementById</h1>
+    <button id="botao-exemplo-1">Alterar cor</button>
+
+    <pre id="codigo-exemplo-1"></pre> <script>
+      const botaoExemplo1 = document.getElementById("botao-exemplo-1");
+      const codigoExemplo1 = document.getElementById("codigo-exemplo-1"); // Target pre tag
+
+      botaoExemplo1.addEventListener("click", () => {
+        const colors = ["red", "blue", "green", "yellow", "orange", "purple"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        document.querySelector("h1").style.color = randomColor;
+
+        codigoExemplo1.textContent = `
+      const botaoExemplo1 = document.getElementsByClassName("botaoExemplo1");
+      botaoExemplo1[0].addEventListener("click", () => {
+      const colors = ["red", "blue", "green", "yellow", "orange", "purple"];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector('h1.h1exemplo1').style.color = randomColor;
+      });
+    `;
+        // Update code display in right column
+       
+      });
+    </script>
+
+<h1 class="h1exemplo2">Exemplo 2: getElementByClassName</h1>
+<button class="botaoExemplo2">Alterar cor</button>
+<pre id="codigo-exemplo-2"></pre> <script>
+  const botaoExemplo2 = document.getElementsByClassName("botaoExemplo2");
+  const codigoExemplo2 = document.getElementById("codigo-exemplo-2"); // Target pre tag
+
+  botaoExemplo2[0].addEventListener("click", () => {
+    const colors = ["red", "blue", "green", "yellow", "orange", "purple"];
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.querySelector('h1.h1exemplo2').style.color = randomColor;
+
+    // Update code display in right column
+    codigoExemplo2.textContent = `
+      const botaoExemplo2 = document.getElementsByClassName("botaoExemplo2");
+      botaoExemplo2[0].addEventListener("click", () => {
+      const colors = ["red", "blue", "green", "yellow", "orange", "purple"];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.querySelector('h1.h1exemplo2').style.color = randomColor;
+      });
+    `;
+  });
+    </script>
+
+<h2>Exemplo 3: getElementByTagName</h2>
+    <button class="botaoExemplo3">Alterar cor</button>
+    <pre id="codigo-exemplo-3"></pre>
+    <script>
+      const botaoExemplo3 = document.querySelector(".botaoExemplo3");
+      const codigoExemplo3 = document.getElementById("codigo-exemplo-3");
+
+      botaoExemplo3.addEventListener("click", () => {
+        const colors = ["red", "blue", "green", "yellow", "orange", "purple"];
+        const randomColor = colors[Math.floor(Math.random() * colors.length)];
+        document.querySelector("h2").style.color = randomColor;
+
+    codigoExemplo3.textContent = `
+          const botaoExemplo3 = document.querySelector(".botaoExemplo3");
+          botaoExemplo3.addEventListener("click", () => {
+          const colors = ["red", "blue", "green", "yellow", "orange", "purple"];
+          const randomColor = colors[Math.floor(Math.random() * colors.length)];
+          document.querySelector("h2").style.color = randomColor;
+          });
+        `;
+      });
+    </script>
+
+<h1>Exemplo 4: createElement</h1>
+<button id="botao-adicionar">Adicionar texto</button>
+<div id="container-texto"></div>
+<pre id="codigo-exemplo-4"></pre>
+<script>
+const botaoAdicionar = document.getElementById("botao-adicionar");
+const containerTexto = document.getElementById("container-texto");
+const codigoExemplo4 = document.getElementById("codigo-exemplo-4");
+
+botaoAdicionar.addEventListener("click", () => {
+  const novoTexto = document.createElement("span");
+  novoTexto.textContent = "Este texto foi criado dinamicamente com JavaScript.";
+  containerTexto.appendChild(novoTexto);
+  const lineBreak = document.createElement("br");
+  containerTexto.appendChild(lineBreak);
+
+  codigoExemplo4.textContent = `
+const botaoAdicionar = document.getElementById("botao-adicionar");
+const containerTexto = document.getElementById("container-texto");
+
+botaoAdicionar.addEventListener("click", () => {
+  const novoTexto = document.createElement("span");
+  novoTexto.textContent = "Este texto foi criado dinamicamente com JavaScript.";
+  containerTexto.appendChild(novoTexto);
+  const lineBreak = document.createElement("br");
+  containerTexto.appendChild(lineBreak);
+});
+`;
+});
+</script>
+
+<h1>Exemplo 5: InnerHTML</h1>
+<button id="botao-add">Adicionar parágrafo</button>
+<div id="container-for-paragraphs"></div>
+<pre id="codigo-exemplo-5"></pre>
+<script>
+const botaoAdd = document.getElementById("botao-add");
+const container = document.getElementById("container-for-paragraphs");
+const codigoExemplo5 = document.getElementById("codigo-exemplo-5");
+
+botaoAdd.addEventListener("click", () => {
+  const novoParagrafo = document.createElement("p");
+  novoParagrafo.innerHTML = "Este parágrafo foi criado dinamicamente com JavaScript.";
+  container.appendChild(novoParagrafo);
+
+  // Update code display in right column
+  codigoExemplo5.textContent = `
+const botaoAdd = document.getElementById("botao-add");
+const container = document.getElementById("container-for-paragraphs");
+
+botaoAdd.addEventListener("click", () => {
+  const novoParagrafo = document.createElement("p");
+  novoParagrafo.innerHTML = "Este parágrafo foi criado dinamicamente com JavaScript.";
+  container.appendChild(novoParagrafo);
+});
+`;
+});
+</script>
+</div>
+
+  <div class="coluna-direita">
+    <pre id="codigo">
+      <h1></h1>
+    </pre>
+    </div>
+
+</body>
+</html>
